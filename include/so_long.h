@@ -6,8 +6,12 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <errno.h>
+# include <stdlib.h>
+# include "get_next_line.h"
+# include "libft.h"
 
-# define
+# define TILE_SIZE 32
 
 typedef struct s_so_long
 {
@@ -19,6 +23,7 @@ typedef struct s_so_long
 
 typedef struct s_map
 {
+    char        **map;
     int         TILE_SIZE;
     int         HIGH;
     int         WIDTH;

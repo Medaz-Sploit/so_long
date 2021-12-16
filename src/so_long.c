@@ -1,7 +1,26 @@
-#include <so_long.h>
+#include "../include/so_long.h"
 
-t_so_long *init_data(t_so_long *so_long)
+t_so_long *init_data(t_so_long so_long)
 {
+    so_long.player.x = 0;
+    so_long.player.y = 0;
+    so_long.exit.x = 0;
+    so_long.exit.y = 0;
+    so_long.collectible.x = 0;
+    so_long.collectible.y = 0;
+    return (so_long);
+}
+
+int read_line (char *line)
+{
+    int i;
+
+    i = 0;
+    if (ft_isspace(line[i]))
+        printf("Error: Encounter a space in map file\n");
+    if (line[i] != 1 || line[i] != 0)
+        printf("Error: Corrupted map file\n");
+    save_map(line);
 
 }
 
@@ -12,7 +31,7 @@ int read_map(char **argv)
 
     fd = open(argv[1], O_RDONLY);
     if (fd < 1)
-        exit_game(1);
+        printf("Error: %s\n", strerror(errno));
     while (get_next_line(fd, &line))
     {
         read_line(line);
@@ -31,14 +50,15 @@ int main(int argc, char **argv)
     if (argc == 2)
     {
         so_long = malloc(sizeof(t_so_long));
+        ft_bzero(so_long, sizeof(t_so_long));
         if (!so_long)
-            exit_game(2);
-        if (ft_strncmp(argv[1], ".ber", 4) != 0)
-            exit_game(3);
-        init_data(so_long);
+            printf("Error: %s\n", strerror(errno));
+        if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".ber", 4) != 0)
+            printf("Error: %s\n", strerror(errno));
+        so_long = init_data(so_long);
         read_map(argv);
     }
     else
-        exit_game(4);
+        printf("Error: %s\n", strerror(errno));
     return (0);
 }
