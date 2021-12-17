@@ -15,40 +15,22 @@
 # define W         13
 # define S         1
 # define D         2
-# define A         0 
+# define A         0
+# define ESC       53
 
 typedef struct s_image
 {
-	int					width;
-	int					height;
-	int					bits_per_pixel;
-	int					size_line;
-	int					endian;
-	void				*ptr;
-	int					*data;
+    void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
 }						t_image;
-
-typedef struct s_so_long
-{
-    t_image         img;
-    int             *get_data;
-    void            *img_ptr;
-    int             *dst;
-    void            *imag;
-    void            *mlx_ptr;
-    void            *win_ptr;
-    void            *new_image;
-    t_map           map;
-    t_player        player;
-    t_exit          exit;
-    t_collectible   collectible;
-}               t_so_long;
 
 typedef struct s_map
 {
     char        **map;
-    int         TILE_SIZE;
-    int         HIGHT;
+    int         HEIGHT;
     int         WIDTH;
 }               t_map;
 
@@ -77,10 +59,35 @@ typedef struct s_collectible
     float       Y;
 }               t_collectible;
 
-char        *save_map(char *line);
+
+typedef struct s_so_long
+{
+    t_image         img;
+    int             *get_data;
+    void            *img_ptr;
+    int             *dst;
+    void            *imag;
+    void            *mlx_ptr;
+    void            *win_ptr;
+    void            *new_image;
+    t_map           map;
+    t_player        player;
+    t_exit          exit;
+    t_collectible   collectible;
+}               t_so_long;
+
+char        **save_map(t_so_long so_long, char *line);
 void        init_game(t_so_long so_long);
-int         key_release(t_so_long so_long);
-int         key_press(t_so_long so_long);
+int         key_release(t_so_long so_long, int keycode);
+int         key_press(t_so_long so_long, int keycode);
+int         key_exit(void);
+void        player_position(t_so_long);
+void        texture(t_so_long so_long);
+void        sprite(t_so_long so_long);
+void        player_mouvement(t_so_long so_long);
+void        render(t_so_long so_long);
+void        draw_sprite(t_so_long so_long);
+int         game_update(t_so_long so_long);
 
 
 #endif

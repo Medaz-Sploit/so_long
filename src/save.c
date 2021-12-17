@@ -1,4 +1,5 @@
-char    *save_map(char *line)
+char    **save_map(t_so_long so_long,  char *line)
 {
-
+    line = NULL;
+    return(so_long.map.map);
 }

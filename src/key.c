@@ -2,7 +2,7 @@
 
 int     key_exit(void)
 {
-    exit();
+    exit(0);
     return (0);
 }
 

@@ -1,20 +1,20 @@
 #include "../include/so_long.h"
 
-t_so_long *init_data(t_so_long so_long)
+t_so_long init_data(t_so_long so_long)
 {
-    so_long.player.x = 0;
-    so_long.player.y = 0;
-    so_long.exit.x = 0;
-    so_long.exit.y = 0;
-    so_long.collectible.x = 0;
-    so_long.collectible.y = 0;
+    so_long.player.X = 0;
+    so_long.player.Y = 0;
+    so_long.exit.X = 0;
+    so_long.exit.Y = 0;
+    so_long.collectible.X = 0;
+    so_long.collectible.Y = 0;
     so_long.mlx_ptr = mlx_init();
     so_long.win_ptr = mlx_new_window(so_long.mlx_ptr, so_long.map.WIDTH, so_long.map.HEIGHT, "SO_LONG");
-    so_long.img = NULL;
+    so_long.imag = NULL;
     return (so_long);
 }
 
-int read_line (char *line)
+int read_line(char *line)
 {
     int i;
 
@@ -24,7 +24,7 @@ int read_line (char *line)
     if (line[i] != 1 || line[i] != 0)
         printf("Error: Corrupted map file\n");
     save_map(line);
-
+    return (0);
 }
 
 int read_map(char **argv)
@@ -44,6 +44,7 @@ int read_map(char **argv)
     read_line(line);
     free(line);
     line = NULL;
+    return (0);
 }
 
 int main(int argc, char **argv)
@@ -52,7 +53,7 @@ int main(int argc, char **argv)
 
     if (argc == 2)
     {
-        so_long = malloc(sizeof(t_so_long));
+        so_long = (t_so_long *)malloc(sizeof(t_so_long));
         ft_bzero(so_long, sizeof(t_so_long));
         if (!so_long)
             printf("Error: %s\n", strerror(errno));
