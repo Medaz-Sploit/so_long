@@ -20,12 +20,12 @@
 
 typedef struct s_image
 {
-    void		*img;
-	char		*addr;
+    	void			*img;
+	char			*addr;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
-}						t_image;
+}		t_image;
 
 typedef struct s_map
 {
