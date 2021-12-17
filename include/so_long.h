@@ -8,8 +8,8 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <stdlib.h>
-# include "get_next_line.h"
-# include "libft.h"
+# include "../src/get_next_line/get_next_line.h"
+# include "../src/libft/libft.h"
 
 # define TILE_SIZE 32
 # define W         13
