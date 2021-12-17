@@ -6,28 +6,11 @@
 /*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 18:44:15 by mazoukni          #+#    #+#             */
-/*   Updated: 2021/04/08 00:26:07 by mazoukni         ###   ########.fr       */
+/*   Updated: 2021/12/17 21:46:53 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*sub;
-
-	if (!s)
-		return (0);
-	if (start >= ft_strlen(s))
-		len = 0;
-	sub = malloc(1 + len * sizeof(char));
-	if (!sub)
-		return (NULL);
-	if (!len)
-		sub[0] = '\0';
-	ft_strlcpy(sub, s + start, len + 1);
-	return (sub);
-}
 
 static int	read_line(int fd, char **tmp)
 {
