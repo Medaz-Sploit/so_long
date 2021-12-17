@@ -8,6 +8,9 @@ t_so_long *init_data(t_so_long so_long)
     so_long.exit.y = 0;
     so_long.collectible.x = 0;
     so_long.collectible.y = 0;
+    so_long.mlx_ptr = mlx_init();
+    so_long.win_ptr = mlx_new_window(so_long.mlx_ptr, so_long.map.WIDTH, so_long.map.HEIGHT, "SO_LONG");
+    so_long.img = NULL;
     return (so_long);
 }
 
@@ -57,6 +60,7 @@ int main(int argc, char **argv)
             printf("Error: %s\n", strerror(errno));
         so_long = init_data(so_long);
         read_map(argv);
+        init_game(so_long);
     }
     else
         printf("Error: %s\n", strerror(errno));

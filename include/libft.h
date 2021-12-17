@@ -6,7 +6,7 @@
 /*   By: mazoukni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 15:43:06 by mazoukni          #+#    #+#             */
-/*   Updated: 2019/10/25 05:11:03 by mazoukni         ###   ########.fr       */
+/*   Updated: 2021/12/17 00:43:05 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <string.h>
 # include <unistd.h>
 
+
+int                 ft_isspace(char c);
 int					ft_atoi(const char *str);
 void				ft_bzero(void *str, size_t n);
 void				*ft_calloc(size_t count, size_t size);
