@@ -1,13 +1,22 @@
 #include "../include/so_long.h"
 
-void        init_game(t_so_long so_long)
+t_so_long        *init_game(char *lin)
 {
-    //player_position(so_long);
-    //texture(so_long);
-    //sprite(so_long);
-    mlx_hook(so_long.win_ptr, 2, 0, key_press, "KEY_PRESS");
-    mlx_hook(so_long.win_ptr, 3, 0, key_release, "KEY_RELEASE");
-    mlx_loop_hook(so_long.mlx_ptr, &game_update, "GAME_UPDATE");
-    mlx_hook(so_long.win_ptr, 17, 1L << 5, key_exit, "EXIT_GAME");
-    mlx_loop(so_long.mlx_ptr);
+	t_so_long	*so_long;
+
+	so_long = (t_so_long *)malloc(sizeof(t_so_long));
+	if (so_long == 0)
+		so_long_destroy(so_long, "init_game(): MALLOC FAILURE!!\n");
+	so_long->game = 0;
+	so_long->mlx_ptr = 0;
+	so_long->imag = 0;
+	so_long->win_ptr = 0;
+	so_long->
+	//player_position(so_long);
+	//texture(so_long);
+	//sprite(so_long);
+	start_game(so_long, line)
+	render(so_long);
+	texture(so_long);
+	return (so_long)
 }
