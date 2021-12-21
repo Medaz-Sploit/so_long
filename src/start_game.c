@@ -1,14 +1,11 @@
 #include "../include/so_long.h"
 
-void	start_game(t_so_long *so_long, char filename)
+void	start_game(t_so_long *so_long, char *filename)
 {
 	so_long->game = (t_game *)malloc(sizeof(t_game));
 	if (so_long->game == 0)
-	{
-		printf("Error: MALLOC FAILURE!!\n");
-		so_long_destroy(so_long);
-	}
-	so_long->map = 0;
+		so_long_destroy(so_long, "Error: MALLOC FAILURE!!\n");
+	so_long->map.map = NULL;
 	so_long->game->coll = 0;
 	so_long->game->count_coll = 0;
 	so_long->game->count_exit = 0;

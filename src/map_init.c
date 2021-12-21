@@ -18,6 +18,6 @@ void	map_init(t_so_long *so_long, char *filename)
 	read_map(so_long, line);
 	line = NULL;
 	close(fd);
-	read_texture(so_long)
+	read_texture(so_long);
 	free(line);
 }

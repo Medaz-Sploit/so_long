@@ -6,7 +6,7 @@
 /*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 09:42:32 by mazoukni          #+#    #+#             */
-/*   Updated: 2021/12/21 10:08:50 by mazoukni         ###   ########.fr       */
+/*   Updated: 2021/12/21 12:45:38 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	draw_env(t_so_long *so_long, int i, int j)
 	k = -1;
 	while (++k < so_long->game->count_coll)
 		if (so_long->game->coll[k].X == i && so_long->game->coll[k].Y == j)
-			draw_square(so_long, so_long->coll, i * TILE_SIZE, j * TILE_SIZE);
+			draw_square(so_long, so_long->collectible, i * TILE_SIZE, j * TILE_SIZE);
 	if (so_long->game->player.X == i && so_long->game->player.Y == j)
 		draw_square(so_long, so_long->player, i * TILE_SIZE, j * TILE_SIZE);
 }

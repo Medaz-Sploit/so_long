@@ -1,7 +1,7 @@
 #include "../include/so_long.h"
 
 
-int	check_ber(t_so_long *so_long, char **argv)
+int	check_ber(char **argv)
 {
 	int len;
 
@@ -10,7 +10,7 @@ int	check_ber(t_so_long *so_long, char **argv)
 		return (0);
 	if (len < 5)
 		return (0);
-	if (ft_strcmp(argv[1] + ft_strlen(argv[1]) - 4, ".ber", 4) != 0)
+	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".ber", 4) != 0)
 		printf("Error: %s\n", strerror(errno));
 	return (1);
 }
@@ -20,11 +20,13 @@ int main(int argc, char **argv)
  	t_so_long *so_long;
 
 	if (argc == 2)
-		if (check_ber(so_long, argv))
+	{
+		if (check_ber(argv))
 		{
 			printf("Error: invalide argument <name>.ber !\n");
 			return (-1);
 		}
+	}
 	else
 		printf("Error: %s\n", strerror(errno));
 	so_long = init_game(argv[1]);

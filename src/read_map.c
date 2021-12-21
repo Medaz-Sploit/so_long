@@ -27,15 +27,14 @@ void	map_height(t_so_long *so_long, char *line)
 		if (so_long->map.WIDTH != j)
 		{
 			free(line);
-			printf("Error: Map must be square!\n");
-			so_long_destroy(so_long);
+			so_long_destroy(so_long, "Error: Map must be square!!\n");
 		}
 		i += so_long->map.WIDTH + 1;
 		so_long->map.HEIGHT++;
 	}
 }
 
-void	ismap_valid(t_so_long *long, char *line)
+void	ismap_valid(t_so_long *so_long, char *line)
 {
 	int	i;
 
@@ -49,20 +48,18 @@ void	ismap_valid(t_so_long *long, char *line)
 			if (line[i] != '1')
 			{
 				free(line);
-				printf("Error: map must be surrounded by walls!\n");
-				so_long_destroy(so_long);
+				so_long_destroy(so_long, "Error: map must be surrounded by walls!!\n");
 			}
 		}
 		else
 			isvalid(so_long, line, i);
 	}
-	if (so_long->game.count_player != 1 
-		|| so_long->game.count_exit != 1 
-		|| so_long->game.count_coll < 1)
+	if (so_long->game->count_player != 1 
+		|| so_long->game->count_exit != 1 
+		|| so_long->game->count_coll < 1)
 	{
 		free(line);
-		printf("Error: Map Configuration is invalid!\n");
-		so_long_destroy(so_long);
+		so_long_destroy(so_long, "Error: Map Configuration is invalid!!\n");
 	}
 }
 
@@ -96,20 +93,18 @@ void	read_map(t_so_long *so_long, char *line)
 	map_width(so_long, line);
 	map_height(so_long, line);
 	ismap_valid(so_long, line);
-	so_long->game.coll = (t_coord *)malloc(sizeof(t_coord) \
-				* so_long->game.count_coll);
-	if (so_long->game.coll == 0)
+	so_long->game->coll = (t_coord *)malloc(sizeof(t_coord) \
+				* so_long->game->count_coll);
+	if (so_long->game->coll == 0)
 	{
 		free(line);
-		printf("Error: MALLOC FAILURE!!\n");
-		so_long_destroy(so_long);
+		so_long_destroy(so_long, "Error: MALLOC FAILURE!!\n");
 	}
 	so_long->map.map = (char **)malloc(sizeof(char *) * so_long->map.HEIGHT);
 	if (so_long->map.map == 0)
 	{
 		free(line);
-		printf("Error: MALLOC FAILURE!!\n");
-		so_long_destroy(so_long);
+		so_long_destroy(so_long, "Error: MALLOC FAILURE!!\n");
 	}
 	map_parsing(so_long, line);
 }

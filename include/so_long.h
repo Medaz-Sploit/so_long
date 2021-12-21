@@ -6,7 +6,7 @@
 /*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 02:39:16 by mazoukni          #+#    #+#             */
-/*   Updated: 2021/12/21 08:02:26 by mazoukni         ###   ########.fr       */
+/*   Updated: 2021/12/21 13:33:51 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 
 typedef struct s_image
 {
+	int			width;
+	int			height;
 	void			*img;
 	char			*addr;
 	int			bits_per_pixel;
@@ -97,14 +99,27 @@ t_so_long        *init_game(char *filename);
 void		so_long_destroy(t_so_long *so_long, char *srt);
 int         key_release(t_so_long *so_long, int keycode);
 int         key_press(t_so_long *so_long, int keycode);
-int         key_exit(void);
+int         key_exit(t_so_long *so_long);
 void        player_position(t_so_long *so_long);
+void		read_map(t_so_long *so_long, char *line);
 void        read_texture(t_so_long *so_long);
+int		isborder(t_so_long *so_long, int i);
+void		isvalid(t_so_long *so_long, char *line, int i);
 void        sprite(t_so_long *so_long);
 void        player_mouvement(t_so_long *so_long);
 void        render(t_so_long *so_long);
 void        draw_sprite(t_so_long *so_long);
 int         game_update(t_so_long *so_long);
+void		start_game(t_so_long *so_long, char *filename);
+void		free_map(t_so_long *so_long, char *line, char **m, int size);
+void		get_coordination(t_so_long *so_long, char *line, int k, int *collectible);
+void		move_up(t_so_long *so_long, int x, int y);
+void		move_down(t_so_long *so_long, int x, int y);
+void		move_left(t_so_long *so_long, int x, int y);
+void		move_right(t_so_long *so_long, int x, int y);
+void		draw(t_so_long *so_long);
+void		destroy_game(t_so_long *so_long);
+void		map_init(t_so_long *so_long, char *filename);
 
 
 #endif
