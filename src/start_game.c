@@ -1,6 +1,6 @@
 #include "../include/so_long.h"
 
-void	start_game(t_so_long *so_long, char **argv)
+void	start_game(t_so_long *so_long, char filename)
 {
 	so_long->game = (t_game *)malloc(sizeof(t_game));
 	if (so_long->game == 0)
@@ -19,5 +19,5 @@ void	start_game(t_so_long *so_long, char **argv)
 	so_long->game->player_down = 0;
 	so_long->game->player_left = 0;
 	so_long->game->player_right = 0;
-	map_init(so_long, argv[1]);
+	map_init(so_long, filename);
 }

@@ -6,7 +6,7 @@
 /*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 02:41:36 by mazoukni          #+#    #+#             */
-/*   Updated: 2021/12/21 06:15:31 by mazoukni         ###   ########.fr       */
+/*   Updated: 2021/12/21 07:54:11 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	so_long_destroy(t_so_long *so_long, char *str)
 		if (so_long->mlx_ptr)
 			mlx_destroy_display(so_long->mlx_ptr);
 		if (so_long)
-			game_destroy(so_long);
+			destroy_game(so_long);
 		free(so_long);
 	}
 	printf("%s\n", str);

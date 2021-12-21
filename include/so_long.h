@@ -6,7 +6,7 @@
 /*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 02:39:16 by mazoukni          #+#    #+#             */
-/*   Updated: 2021/12/21 05:58:42 by mazoukni         ###   ########.fr       */
+/*   Updated: 2021/12/21 08:02:26 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ typedef struct s_game
 typedef struct s_so_long
 {
 	t_game		*game;
-	t_image         img;
-	t_image		ground;
+	t_image         *img;
+	t_image		*ground;
 	int             *get_data;
 	void            *img_ptr;
 	int             *dst;
@@ -86,19 +86,20 @@ typedef struct s_so_long
 	void            *win_ptr;
 	void            *new_image;
 	t_map           map;
-	t_image        player;
-	t_image		wall;
-	t_image          exit;
-	t_image   collectible;
+	t_image        	*player;
+	t_image		*wall;
+	t_image         *exit;
+	t_image  	*collectible;
 }               t_so_long;
 
 char        **save_map(t_so_long *so_long, char *line);
-void        init_game(t_so_long *so_long);
+t_so_long        *init_game(char *filename);
+void		so_long_destroy(t_so_long *so_long, char *srt);
 int         key_release(t_so_long *so_long, int keycode);
 int         key_press(t_so_long *so_long, int keycode);
 int         key_exit(void);
 void        player_position(t_so_long *so_long);
-void        texture(t_so_long *so_long);
+void        read_texture(t_so_long *so_long);
 void        sprite(t_so_long *so_long);
 void        player_mouvement(t_so_long *so_long);
 void        render(t_so_long *so_long);
