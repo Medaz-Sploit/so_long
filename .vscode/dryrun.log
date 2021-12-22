@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/medazsploit/.Desktop/Desktop/so_long'
+gcc -Wall -Werror -Wextra  -lmlx -framework appkit -framework opengl -D BUFFER_SIZE=1000  src/*.c src/libft/*.c src/get_next_line/*.c  -o so_long
+make: Leaving directory `/Users/medazsploit/.Desktop/Desktop/so_long'
+ 

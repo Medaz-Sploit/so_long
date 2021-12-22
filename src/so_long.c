@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		if (check_ber(argv))
+		if (!check_ber(argv))
 		{
 			printf("Error: invalide argument <name>.ber !\n");
 			return (-1);

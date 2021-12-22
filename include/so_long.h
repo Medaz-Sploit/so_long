@@ -6,7 +6,7 @@
 /*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 02:39:16 by mazoukni          #+#    #+#             */
-/*   Updated: 2021/12/21 13:33:51 by mazoukni         ###   ########.fr       */
+/*   Updated: 2021/12/21 14:12:30 by medazsploit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ void		move_right(t_so_long *so_long, int x, int y);
 void		draw(t_so_long *so_long);
 void		destroy_game(t_so_long *so_long);
 void		map_init(t_so_long *so_long, char *filename);
-
+unsigned int	mlx_get_pixel(t_image *img, int x, int y);
+void		mlx_draw_pixel(t_image *img, int x, int y, int color);
+unsigned int	mlx_rgb_to_int(int o, int r, int g, int b);
 
 #endif
